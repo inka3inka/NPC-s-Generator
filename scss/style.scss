@@ -1,0 +1,59 @@
+@import 'reset';
+
+html {
+  font-size: 1vw;
+  font-family: 'Archivo Narrow', sans-serif;
+}
+
+//Główny kontener
+.container {
+  width: 100vw;
+  height: 100vh;
+  background-color: #000000;
+
+  .main-container {
+    width: 80%;
+    height: 100%;
+    margin: 0 auto;
+    background-color: #1d1c1f;
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+//Pasek nawigacyjny
+.nav-container {
+  width: 80%;
+  margin: 0 auto;
+  height: 5vh;
+  display: flex;
+  flex-direction: row;
+  background-color: #565559;
+  font-size: 1.5rem;
+
+  .nav-element {
+    width: 12vw;
+    height: 5vh;
+    margin-left: 1vw;
+    display: flex;
+    align-items: center;
+
+    &:link {
+      text-decoration: none;
+      color: #ffffff;
+    }
+
+    &:visited {
+      color: #ffffff;
+    }
+
+    &:hover {
+      color: #000000;
+      cursor: pointer;
+    }
+
+    &:focus {
+      color: #000000;
+    }
+  }
+}

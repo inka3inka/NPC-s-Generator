@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 import ReactDOM from "react-dom";
 
-import {ReceiptHeader} from './components/main';
+import {MainContainer} from './components/mainContainer';
 
 class App extends Component {
   render(){
-    return <ReceiptHeader/>
+    return (
+      <MainContainer />
+    )
   }
 }
 
