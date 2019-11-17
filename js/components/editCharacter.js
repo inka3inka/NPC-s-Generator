@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import elements from '../data/elements';
 
-export class NewCharacter extends Component {
+export class EditCharacter extends Component {
   state = {
     characterName: "",
     characterSurname: "",
@@ -97,7 +97,7 @@ export class NewCharacter extends Component {
         <div className="options">
           <div className="attributes-container">
 
-      {/*Atrybuty*/}
+            {/*Atrybuty*/}
 
             attributes
             <label>
@@ -167,98 +167,98 @@ export class NewCharacter extends Component {
                 onChange={this.handleAttributeChange}/>
             </label>
 
-      {/* Formularz */}
+            {/* Formularz */}
 
-          <form className="new-character-form">
+            <form className="new-character-form">
 
-          {/*inputy*/}
-            <label>
+              {/*inputy*/}
+              <label>
               <span>
                 character's name
               </span>
-              <input
-                type="text"
-                name="characterName"
-                value={this.state.characterName}
-                onChange={this.handleNameChange}/>
-            </label>
-            <label>
+                <input
+                  type="text"
+                  name="characterName"
+                  value={this.state.characterName}
+                  onChange={this.handleNameChange}/>
+              </label>
+              <label>
               <span>
                 character's surname
               </span>
-              <input
-                type="text"
-                name="characterSurname"
-                value={this.state.characterSurname}
-                onChange={this.handleSurnameChange}/>
-            </label>
+                <input
+                  type="text"
+                  name="characterSurname"
+                  value={this.state.characterSurname}
+                  onChange={this.handleSurnameChange}/>
+              </label>
 
-          {/*opcje*/}
+              {/*opcje*/}
 
-            <label>
+              <label>
               <span>
                 race
               </span>
-              <select
-                value={this.state.race}
-                onChange={this.handleRaceChange}>
-                {elements.races.map(element => <option key={element} value={element}>{element}</option>)}
-              </select>
-            </label>
-            <label>
+                <select
+                  value={this.state.race}
+                  onChange={this.handleRaceChange}>
+                  {elements.races.map(element => <option key={element} value={element}>{element}</option>)}
+                </select>
+              </label>
+              <label>
               <span>
                 class
               </span>
-              <select
-                value={this.state.class}
-                onChange={this.handleClassChange}>
-                {elements.classes.map(element => <option key={element} value={element}>{element}</option>)}
-              </select>
-            </label>
-            <label>
+                <select
+                  value={this.state.class}
+                  onChange={this.handleClassChange}>
+                  {elements.classes.map(element => <option key={element} value={element}>{element}</option>)}
+                </select>
+              </label>
+              <label>
               <span>
                 armor class
               </span>
-              <input
-                type="number"
-                name="armorClass"
-                value={this.state.armorClass}
-                onChange={this.handleArmorClass}/>
-            </label>
-            <label>
+                <input
+                  type="number"
+                  name="armorClass"
+                  value={this.state.armorClass}
+                  onChange={this.handleArmorClass}/>
+              </label>
+              <label>
               <span>
                 initiative
               </span>
-              <input
-                type="number"
-                name="initiative"
-                value={this.state.initiative}
-                onChange={this.handleInitiative}/>
-            </label>
-            <label>
+                <input
+                  type="number"
+                  name="initiative"
+                  value={this.state.initiative}
+                  onChange={this.handleInitiative}/>
+              </label>
+              <label>
               <span>
                 hit points
               </span>
-              <input
-                type="number"
-                name="hitPoints"
-                value={this.state.hitPoints}
-                onChange={this.handleHitPoints}/>
-            </label>
-            <label>
+                <input
+                  type="number"
+                  name="hitPoints"
+                  value={this.state.hitPoints}
+                  onChange={this.handleHitPoints}/>
+              </label>
+              <label>
               <span>
                 abilities
               </span>
-              <select
-                className="abilities-to-select"
-                ref={(el) => this.selectEl = el}>
-                {this.state.availableAbilities.filter(({name}) =>
-                  !this.state.abilities.includes(name)).map(element =>
-                  <option key={element.name} value={element.name} name={element.name}>{element.name}</option>)}
-              </select>
-              <button onClick={this.handleAbilitiesChosen}>add</button>
-            </label>
-          </form>
+                <select
+                  className="abilities-to-select"
+                  ref={(el) => this.selectEl = el}>
+                  {this.state.availableAbilities.filter(({name}) =>
+                    !this.state.abilities.includes(name)).map(element =>
+                    <option key={element.name} value={element.name} name={element.name}>{element.name}</option>)}
+                </select>
+                <button onClick={this.handleAbilitiesChosen}>add</button>
+              </label>
+            </form>
           </div>
           <div>Obrazek</div>
         </div>

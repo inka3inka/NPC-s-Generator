@@ -4,6 +4,8 @@ import { Route, HashRouter as Router, Switch , Link} from'react-router-dom';
 import {MainPage} from "./mainPage";
 import {Characters} from "./characters";
 import {NewCharacter} from "./addNewCharacter";
+import {EditCharacter} from "./editCharacter";
+import elements from "../data/elements";
 
 export class MainContainer extends Component {
   state = {
@@ -31,6 +33,12 @@ export class MainContainer extends Component {
             <Route path="/addNewCharacter">
               <NewCharacter onDone={this.showCharacters}/>
             </Route>
+            <Route path="/editCharacter/:characterId" children={({ match: { params: { characterId}}}) => {
+
+              return <EditCharacter character={this.state.characters[characterId]} />
+            }}>
+
+            </Route>
           </Switch>
         </div>
         </Router>
@@ -39,3 +47,17 @@ export class MainContainer extends Component {
   );
   }
 }
+/*
+characterName: "",
+  characterSurname: "",
+  rece: "",
+  class: "",
+  attributesValue: {strength: "", dexterity: "", constitution: "", intelligence: "", wisdom: "", charisma: ""},
+availableAbilities: elements.abilities,
+  abilities: [],
+  armorClass: "",
+  initiative: "",
+  hitPoints: "",
+  bio: ""
+
+ */
