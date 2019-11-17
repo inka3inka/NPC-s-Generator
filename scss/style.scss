@@ -57,3 +57,53 @@ html {
     }
   }
 }
+
+//Nowy charakter
+
+.new-character-container {
+  color: white;
+  display: flex;
+  flex-direction: column;
+
+  .options {
+    display: flex;
+    flex-direction: row;
+
+    .attributes-container {
+      display: flex;
+      flex-direction: column;
+      width: 45%;
+      text-align: right;
+    }
+
+    .new-character-form {
+      display: flex;
+      flex-direction: column;
+      text-align: right;
+
+    }
+
+    span {
+      width: 30%
+    }
+
+    input {
+      width: 60%
+    }
+
+    select {
+      width: 60%
+    }
+
+    .abilities-to-select {
+      width: 40%
+    }
+
+    button {
+      width: 20%
+    }
+  }
+
+
+}
+
