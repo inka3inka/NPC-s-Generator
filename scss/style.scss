@@ -107,7 +107,23 @@ html {
       width: 20%
     }
   }
-
-
 }
+
+.chosen-options {
+  display: flex;
+  flex-direction: row;
+
+  .chosen-abilities-container {
+    width: 50%
+  }
+
+  textarea {
+    width: 50%
+  }
+}
+
+.all-characters-container {
+  color: white
+}
+
 

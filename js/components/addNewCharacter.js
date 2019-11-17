@@ -8,6 +8,7 @@ export class NewCharacter extends Component {
     rece: "",
     class: "",
     attributesValue: {strength: "", dexterity: "", constitution: "", intelligence: "", wisdom: "", charisma: ""},
+    availableAbilities: elements.abilities,
     abilities: [],
     armorClass: "",
     initiative: "",
@@ -52,8 +53,10 @@ export class NewCharacter extends Component {
     e.preventDefault();
     const abilities = [...this.state.abilities];
     abilities.push(this.selectEl.value);
+    const availableAbilities = this.state.availableAbilities.filter(element => element.name !== this.selectEl.value);
     this.setState({
-      abilities: abilities
+      abilities: abilities,
+      availableAbilities: availableAbilities
     }, () => console.log(this.state.abilities))
   };
 
@@ -72,6 +75,12 @@ export class NewCharacter extends Component {
   handleHitPoints = e => {
     this.setState({
       hitPoints: e.target.value
+    })
+  };
+
+  handleBio = e => {
+    this.setState({
+      bio: e.target.value
     })
   };
 
@@ -236,7 +245,7 @@ export class NewCharacter extends Component {
               <select
                 className="abilities-to-select"
                 ref={(el) => this.selectEl = el}>
-                {elements.abilities.map(element => <option key={element.name} value={element.name} name={element.name}>{element.name}</option>)}
+                {this.state.availableAbilities.map(element => <option key={element.name} value={element.name} name={element.name}>{element.name}</option>)}
               </select>
               <button onClick={this.handleAbilitiesChosen}>add</button>
             </label>
@@ -247,8 +256,11 @@ export class NewCharacter extends Component {
         <div className="chosen-options">
           <ul className="chosen-abilities-container">
             abilities
+            {this.state.abilities.map(element => <li key={element}>{element}</li>)}
           </ul>
+          <textarea name="bio" value={this.state.bio} onChange={this.handleBio}/>
         </div>
+        <button onClick={() => this.props.onDone(this.state)}>save</button>
       </div>
     )
   }

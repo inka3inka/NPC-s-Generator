@@ -6,6 +6,17 @@ import {Characters} from "./characters";
 import {NewCharacter} from "./addNewCharacter";
 
 export class MainContainer extends Component {
+  state = {
+    characters: []
+  };
+
+  showCharacters = (newCharacter) => {
+    const characters = [...this.state.characters, newCharacter];
+    this.setState({
+      characters: characters
+    })
+  };
+
   render() {
     return (
       <div className="container">
@@ -14,8 +25,12 @@ export class MainContainer extends Component {
         <div className="main-container">
           <Switch>
             <Route path="/mainPage" component={MainPage} />
-            <Route path="/characters" component={Characters} />
-            <Route path="/addNewCharacter" component={NewCharacter} />
+            <Route path="/characters">
+              <Characters baseOfCharacters={this.state.characters}/>
+            </Route>
+            <Route path="/addNewCharacter">
+              <NewCharacter onDone={this.showCharacters}/>
+            </Route>
           </Switch>
         </div>
         </Router>
