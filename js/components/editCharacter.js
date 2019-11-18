@@ -3,17 +3,18 @@ import elements from '../data/elements';
 
 export class EditCharacter extends Component {
   state = {
-    characterName: "",
-    characterSurname: "",
-    rece: "",
-    class: "",
+    characterName: this.props.character.characterName,
+    characterSurname: this.props.character.characterSurname,
+    rece: this.props.character.rece,
+    class: this.props.character.class,
     attributesValue: {strength: "", dexterity: "", constitution: "", intelligence: "", wisdom: "", charisma: ""},
     availableAbilities: elements.abilities,
-    abilities: [],
-    armorClass: "",
-    initiative: "",
-    hitPoints: "",
-    bio: ""
+    abilities: this.props.character.abilities,
+    armorClass: this.props.character.armorClass,
+    initiative: this.props.character.initiative,
+    hitPoints: this.props.character.hitPoints,
+    bio: this.props.character.bio,
+    id: this.props.id
   };
 
   //Metody obsługujące inputy
