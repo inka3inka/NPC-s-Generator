@@ -14,6 +14,7 @@ export class Characters extends Component {
               <div>{element.class}</div>
               <Router>
                 <Link to={`/editCharacter/${characterId}`} className="nav-element"><button>edit</button></Link>
+                <Link to={`/characterSheet/${characterId}`} className="nav-element"><button>open</button></Link>
               </Router>
             </div>
           )
