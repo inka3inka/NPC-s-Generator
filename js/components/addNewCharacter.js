@@ -13,7 +13,8 @@ export class NewCharacter extends Component {
     armorClass: "",
     initiative: "",
     hitPoints: "",
-    bio: ""
+    bio: "",
+    basicModificators: {strength: "", dexterity: "", constitution: "", intelligence: "", wisdom: "", charisma: ""}
   };
 
   //Metody obsługujące inputy
@@ -43,9 +44,18 @@ export class NewCharacter extends Component {
 
   handleAttributeChange = e => {
     const attributesValue = {...this.state.attributesValue};
+    let elementToModify = e.target.name;
     attributesValue[e.target.name] = (e.target.value);
     this.setState({
       attributesValue: attributesValue
+    }, () => {
+      console.log(this.state.attributesValue);
+      let modificator = this.modifcatorsGenerator(this.state.attributesValue[elementToModify]);
+      let basicModificators = {...this.state.basicModificators};
+      basicModificators[elementToModify] = modificator;
+      this.setState({
+        basicModificators: basicModificators
+      }, () => console.log(this.state.basicModificators))
     })
   };
 
@@ -90,6 +100,47 @@ export class NewCharacter extends Component {
       bio: e.target.value
     })
   };
+
+  modifcatorsGenerator = (a) => {
+    let modificator;
+    if (a <= 1) {
+      modificator = -5
+    }
+    else if (a <= 3){
+      modificator = -4
+    }
+    else if (a <= 5){
+      modificator = -3
+    }
+    else if (a <= 7){
+      modificator = -2
+    }
+    else if (a <= 9){
+      modificator = -1
+    }
+    else if (a <= 11){
+      modificator = 0
+    }
+    else if (a <= 13){
+      modificator = 1
+    }
+    else if (a <= 15){
+      modificator = 2
+    }
+    else if (a <= 17){
+      modificator = 3
+    }
+    else if (a <= 19){
+      modificator = 4
+    }
+    else if (a <= 20){
+      modificator = 5
+    }
+    console.log(modificator);
+    return modificator
+
+  };
+
 
   render() {
     return (
@@ -151,8 +202,8 @@ export class NewCharacter extends Component {
               <input
                 className="attr"
                 type="number"
-                name="attributesValue"
-                value={this.state.attributesValue[4]}
+                name="wisdom"
+                value={this.state.attributesValue.wisdom}
                 onChange={this.handleAttributeChange}/>
             </label>
             <label>
@@ -162,8 +213,8 @@ export class NewCharacter extends Component {
               <input
                 className="attr"
                 type="number"
-                name="wisdom"
-                value={this.state.attributesValue.wisdom}
+                name="charisma"
+                value={this.state.attributesValue.charisma}
                 onChange={this.handleAttributeChange}/>
             </label>
 
@@ -260,6 +311,13 @@ export class NewCharacter extends Component {
             </label>
           </form>
           </div>
+
+
+          <div>modificators
+          <div style={{color:"white"}}>siła: {this.state.attributesValue.strength}</div>
+          </div>
+
+
           <div>Obrazek</div>
         </div>
         <div className="chosen-options">
