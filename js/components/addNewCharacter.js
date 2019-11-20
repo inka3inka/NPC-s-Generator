@@ -14,7 +14,9 @@ export class NewCharacter extends Component {
     initiative: "",
     hitPoints: "",
     bio: "",
-    basicModificators: {strength: "", dexterity: "", constitution: "", intelligence: "", wisdom: "", charisma: ""}
+    basicModificators: {strength: "", dexterity: "", constitution: "", intelligence: "", wisdom: "", charisma: ""},
+    extraModificators: {strength: "", dexterity: "", constitution: "", intelligence: "", wisdom: "", charisma: ""},
+    modificators: {strength: "", dexterity: "", constitution: "", intelligence: "", wisdom: "", charisma: ""}
   };
 
   //Metody obsługujące inputy
@@ -45,7 +47,7 @@ export class NewCharacter extends Component {
   handleAttributeChange = e => {
     const attributesValue = {...this.state.attributesValue};
     let elementToModify = e.target.name;
-    attributesValue[e.target.name] = (e.target.value);
+    attributesValue[e.target.name] = parseFloat(e.target.value);
     this.setState({
       attributesValue: attributesValue
     }, () => {
@@ -55,7 +57,8 @@ export class NewCharacter extends Component {
       basicModificators[elementToModify] = modificator;
       this.setState({
         basicModificators: basicModificators
-      }, () => console.log(this.state.basicModificators))
+      }, () => console.log(this.state.basicModificators));
+      this.sumModificators
     })
   };
 
@@ -101,6 +104,8 @@ export class NewCharacter extends Component {
     })
   };
 
+  //do modyfikatorów
+
   modifcatorsGenerator = (a) => {
     let modificator;
     if (a <= 1) {
@@ -138,8 +143,24 @@ export class NewCharacter extends Component {
     }
     console.log(modificator);
     return modificator
-
   };
+
+  addExtraModificator = (e) => {
+    let extraModificators = {...this.state.extraModificators};
+    extraModificators[e.target.name] = e.target.value;
+    this.setState({
+      extraModificators: extraModificators
+    }, () => console.log(this.state.extraModificators))
+  }
+
+  sumModificators = (e) => {
+    let modificators = {...this.state.modificators};
+    modificators[e.target.name] = e.target.value;
+    this.setState({
+      modificators: modificators
+    })
+}
+
 
 
   render() {
@@ -313,8 +334,82 @@ export class NewCharacter extends Component {
           </div>
 
 
-          <div>modificators
-          <div style={{color:"white"}}>siła: {this.state.attributesValue.strength}</div>
+          <div>
+            basic modificators
+            <div>
+              <input value={this.state.basicModificators.strength} readOnly />
+              <input value={this.state.basicModificators.dexterity} readOnly />
+              <input value={this.state.basicModificators.constitution} readOnly />
+              <input value={this.state.basicModificators.intelligence} readOnly />
+              <input value={this.state.basicModificators.wisdom} readOnly />
+              <input value={this.state.basicModificators.charisma} readOnly />
+            </div>
+
+          </div>
+
+          <div>
+            extra modificators
+            <div>
+              <input type="number" name="strength" value={this.state.extraModificators.strength} onChange={this.addExtraModificator}/>
+              <input type="number" name="dexterity" value={this.state.extraModificators.dexterity} onChange={this.addExtraModificator} />
+              <input type="number" name="constitution" value={this.state.extraModificators.constitution} onChange={this.addExtraModificator} />
+              <input type="number" name="intelligence" value={this.state.extraModificators.intelligence} onChange={this.addExtraModificator} />
+              <input type="number" name="wisdom" value={this.state.extraModificators.wisdom} onChange={this.addExtraModificator} />
+              <input type="number" name="charisma" value={this.state.extraModificators.charisma} onChange={this.addExtraModificator} />
+            </div>
+
+          </div>
+          <div>
+            modificators
+
+            <input
+              type="number"
+              value={
+                this.state.extraModificators.strength
+                ? this.state.basicModificators.strength + (parseFloat(this.state.extraModificators.strength))
+                : this.state.basicModificators.strength
+              }
+                readOnly />
+            <input
+              type="number"
+              value={
+                this.state.extraModificators.dexterity
+                  ? this.state.basicModificators.dexterity + (parseFloat(this.state.extraModificators.dexterity))
+                  : this.state.basicModificators.dexterity
+              }
+              readOnly />
+            <input
+              type="number"
+              value={
+                this.state.extraModificators.constitution
+                  ? this.state.basicModificators.constitution + (parseFloat(this.state.extraModificators.constitution))
+                  : this.state.basicModificators.constitution
+              }
+              readOnly />
+            <input
+              type="number"
+              value={
+                this.state.extraModificators.intelligence
+                  ? this.state.basicModificators.intelligence + (parseFloat(this.state.extraModificators.intelligence))
+                  : this.state.basicModificators.intelligence
+              }
+              readOnly />
+            <input type="number"
+                   value={
+                     this.state.extraModificators.wisdom
+                       ? this.state.basicModificators.wisdom + (parseFloat(this.state.extraModificators.wisdom))
+                       : this.state.basicModificators.wisdom
+                   }
+                   readOnly />
+            <input type="number"
+                   value={
+                     this.state.extraModificators.charisma
+                       ? this.state.basicModificators.charisma + (parseFloat(this.state.extraModificators.charisma))
+                       : this.state.basicModificators.charisma
+                   }
+                   readOnly />
+
+
           </div>
 
 
