@@ -16,7 +16,8 @@ export class NewCharacter extends Component {
     bio: "",
     basicModificators: {strength: "", dexterity: "", constitution: "", intelligence: "", wisdom: "", charisma: ""},
     extraModificators: {strength: "", dexterity: "", constitution: "", intelligence: "", wisdom: "", charisma: ""},
-    modificators: {strength: "", dexterity: "", constitution: "", intelligence: "", wisdom: "", charisma: ""}
+    modificators: {strength: "", dexterity: "", constitution: "", intelligence: "", wisdom: "", charisma: ""},
+    currentHeight: '20vh'
   };
 
   //Metody obsługujące inputy
@@ -69,7 +70,8 @@ export class NewCharacter extends Component {
 
     this.setState({
       abilities: abilities,
-    }, () => console.log(this.state.abilities))
+    }, () => console.log(this.state.abilities),
+      this.increasingHeight(this.state.abilities.length))
   };
 
   removeAbility = elm => {
@@ -77,8 +79,8 @@ export class NewCharacter extends Component {
 
     this.setState({
       abilities: abilities,
-    })
-  };
+    }, this.descendingHeight(this.state.currentHeight)
+    )};
 
   handleArmorClass = e => {
     this.setState({
@@ -151,7 +153,7 @@ export class NewCharacter extends Component {
     this.setState({
       extraModificators: extraModificators
     }, () => console.log(this.state.extraModificators))
-  }
+  };
 
   sumModificators = (e) => {
     let modificators = {...this.state.modificators};
@@ -159,7 +161,21 @@ export class NewCharacter extends Component {
     this.setState({
       modificators: modificators
     })
-}
+};
+
+  increasingHeight = (a) => {
+    let increasedHeight = (a * 6.5 + 20) + 'vh';
+    this.setState({
+      currentHeight: increasedHeight
+    })
+  };
+
+  descendingHeight = (a) => {
+    let descendingHeight = (parseFloat(a) - 6.5) + 'vh';
+    this.setState({
+      currentHeight: descendingHeight
+    })
+  };
 
 
 
@@ -416,31 +432,35 @@ export class NewCharacter extends Component {
             </div>
           </div>
         </div>
-        <div className="chosen-options">
-          <form className="new-character-form">
-
-            {/*inputy*/}
-
-            <label>
-              <span>
-                abilities
-              </span>
-              <select
-                className="abilities-to-select"
-                ref={(el) => this.selectEl = el}>
-                {this.state.availableAbilities.filter(({name}) =>
-                  !this.state.abilities.includes(name)).map(element =>
-                  <option key={element.name} value={element.name} name={element.name}>{element.name}</option>)}
-              </select>
-              <button onClick={this.handleAbilitiesChosen}>add</button>
-            </label>
-          </form>
-          <ul className="chosen-abilities-container">
-            abilities
-            {this.state.abilities.map(element => <li key={element}>{element}<button onClick={()=>this.removeAbility(element)}>remove</button></li>)}
-          </ul>
-          <textarea name="bio" value={this.state.bio} onChange={this.handleBio}/>
-          <button onClick={() => this.props.onDone(this.state)}>save</button>
+        <div className="chosen-options vertical">
+          <div className="horizontal">
+            <div className="new-character-form vertical" style={{height: this.state.currentHeight}}>
+              <form>
+                <label>
+                  <span className="abilities-header">
+                    abilities
+                  </span>
+                  choose:
+                  <select
+                    className="abilities-to-select"
+                    ref={(el) => this.selectEl = el}>
+                    {this.state.availableAbilities.filter(({name}) =>
+                      !this.state.abilities.includes(name)).map(element =>
+                      <option key={element.name} value={element.name} name={element.name}>{element.name}</option>)}
+                  </select>
+                  <button className="btn" onClick={this.handleAbilitiesChosen}>add</button>
+                </label>
+              </form>
+              <ul className="chosen-abilities-container abilities-header">
+                character's abilities
+                {this.state.abilities.map(element => <li key={element}><span>{element}</span><button className="btn" onClick={()=>this.removeAbility(element)}>remove</button></li>)}
+            </ul>
+            </div>
+            <div className="bio-container vertical">character's bio
+              <textarea rows="1" name="bio" value={this.state.bio} onChange={this.handleBio}/>
+            </div>
+          </div>
+          <button className="save btn" onClick={() => this.props.onDone(this.state)}>save</button>
         </div>
       </div>
     )
