@@ -163,160 +163,264 @@ export class NewCharacter extends Component {
 
 
 
+
   render() {
     return (
-      <div className="new-character-container">
-        <div className="options">
-          <div className="attributes-container">
+      <div className="new-character-container vertical">
+        <div className="basic-information horizontal">
+          <div className="description-container vertical">
+            <div className="basic-information-name vertical">
+              <form className="new-character-form vertical">
+                <label>
+              <span>
+                character's name:
+              </span>
+                  <input
+                    type="text"
+                    name="characterName"
+                    value={this.state.characterName}
+                    onChange={this.handleNameChange}/>
+                </label>
+                <label>
+              <span>
+                character's surname:
+              </span>
+                  <input
+                    type="text"
+                    name="characterSurname"
+                    value={this.state.characterSurname}
+                    onChange={this.handleSurnameChange}/>
+                </label>
 
-      {/*Atrybuty*/}
+                {/*opcje*/}
 
-            attributes
-            <label>
+                <label>
               <span>
-                strength
+                race:
               </span>
-              <input
-                className="attr"
-                type="number"
-                name="strength"
-                value={this.state.attributesValue.strength}
-                onChange={this.handleAttributeChange}/>
-            </label>
-            <label>
+                  <select
+                    value={this.state.race}
+                    onChange={this.handleRaceChange}>
+                    {elements.races.map(element => <option key={element} value={element}>{element}</option>)}
+                  </select>
+                </label>
+                <label>
               <span>
-                dexterity
+                class:
               </span>
-              <input
-                className="attr"
-                type="number"
-                name="dexterity"
-                value={this.state.attributesValue.dexterity}
-                onChange={this.handleAttributeChange}/>
-            </label>
-            <label>
+                  <select
+                    value={this.state.class}
+                    onChange={this.handleClassChange}>
+                    {elements.classes.map(element => <option key={element} value={element}>{element}</option>)}
+                  </select>
+                </label>
+                <label>
               <span>
-                constitution
+                armor class:
               </span>
-              <input
-                className="attr"
-                type="number"
-                name="constitution"
-                value={this.state.attributesValue.constitution}
-                onChange={this.handleAttributeChange}/>
-            </label>
-            <label>
+                  <input
+                    type="number"
+                    name="armorClass"
+                    value={this.state.armorClass}
+                    onChange={this.handleArmorClass}/>
+                </label>
+                <label>
               <span>
-                intelligence
+                initiative:
               </span>
-              <input
-                className="attr"
-                type="number"
-                name="intelligence"
-                value={this.state.attributesValue.intelligence}
-                onChange={this.handleAttributeChange}/>
-            </label>
-            <label>
+                  <input
+                    type="number"
+                    name="initiative"
+                    value={this.state.initiative}
+                    onChange={this.handleInitiative}/>
+                </label>
+                <label>
               <span>
-                wisdom
+                hit points:
               </span>
-              <input
-                className="attr"
-                type="number"
-                name="wisdom"
-                value={this.state.attributesValue.wisdom}
-                onChange={this.handleAttributeChange}/>
-            </label>
-            <label>
-              <span>
-                charisma
-              </span>
-              <input
-                className="attr"
-                type="number"
-                name="charisma"
-                value={this.state.attributesValue.charisma}
-                onChange={this.handleAttributeChange}/>
-            </label>
+                  <input
+                    type="number"
+                    name="hitPoints"
+                    value={this.state.hitPoints}
+                    onChange={this.handleHitPoints}/>
+                </label>
+              </form>
+            </div>
+            <div className="basic-information-modificators horizontal">
 
-      {/* Formularz */}
 
+              <div className="attributes vertical">
+                <span className="modificator-header">
+                attributes
+                </span>
+                <label>
+                <span>
+                  strength
+                </span>
+                  <input
+                    className="attr"
+                    type="number"
+                    name="strength"
+                    value={this.state.attributesValue.strength}
+                    onChange={this.handleAttributeChange}/>
+                </label>
+                <label>
+                <span>
+                  dexterity
+                </span>
+                  <input
+                    className="attr"
+                    type="number"
+                    name="dexterity"
+                    value={this.state.attributesValue.dexterity}
+                    onChange={this.handleAttributeChange}/>
+                </label>
+                <label>
+                <span>
+                  constitution
+                </span>
+                  <input
+                    className="attr"
+                    type="number"
+                    name="constitution"
+                    value={this.state.attributesValue.constitution}
+                    onChange={this.handleAttributeChange}/>
+                </label>
+                <label>
+                <span>
+                  intelligence
+                </span>
+                  <input
+                    className="attr"
+                    type="number"
+                    name="intelligence"
+                    value={this.state.attributesValue.intelligence}
+                    onChange={this.handleAttributeChange}/>
+                </label>
+                <label>
+                <span>
+                  wisdom
+                </span>
+                  <input
+                    className="attr"
+                    type="number"
+                    name="wisdom"
+                    value={this.state.attributesValue.wisdom}
+                    onChange={this.handleAttributeChange}/>
+                </label>
+                <label>
+                <span>
+                  charisma
+                </span>
+                  <input
+                    className="attr"
+                    type="number"
+                    name="charisma"
+                    value={this.state.attributesValue.charisma}
+                    onChange={this.handleAttributeChange}/>
+                </label>
+              </div>
+
+              <div>
+                <span className="modificator-header">
+                  basic modificators
+                </span>
+                <div className="modificators vertical">
+                  <input value={this.state.basicModificators.strength} readOnly />
+                  <input value={this.state.basicModificators.dexterity} readOnly />
+                  <input value={this.state.basicModificators.constitution} readOnly />
+                  <input value={this.state.basicModificators.intelligence} readOnly />
+                  <input value={this.state.basicModificators.wisdom} readOnly />
+                  <input value={this.state.basicModificators.charisma} readOnly />
+                </div>
+
+              </div>
+
+              <div>
+                <span className="modificator-header">
+                extra modificators
+                </span>
+                <div className="modificators vertical">
+                  <input type="number" name="strength" value={this.state.extraModificators.strength} onChange={this.addExtraModificator}/>
+                  <input type="number" name="dexterity" value={this.state.extraModificators.dexterity} onChange={this.addExtraModificator} />
+                  <input type="number" name="constitution" value={this.state.extraModificators.constitution} onChange={this.addExtraModificator} />
+                  <input type="number" name="intelligence" value={this.state.extraModificators.intelligence} onChange={this.addExtraModificator} />
+                  <input type="number" name="wisdom" value={this.state.extraModificators.wisdom} onChange={this.addExtraModificator} />
+                  <input type="number" name="charisma" value={this.state.extraModificators.charisma} onChange={this.addExtraModificator} />
+                </div>
+
+              </div>
+
+
+              <div className="modificators vertical">
+                <span className="modificator-header">
+                  modificators
+                </span>
+
+                <input
+                       type="number"
+                       value={
+                         this.state.extraModificators.strength
+                           ? this.state.basicModificators.strength + (parseFloat(this.state.extraModificators.strength))
+                           : this.state.basicModificators.strength
+                       }
+                       readOnly />
+                <input
+                  type="number"
+                  value={
+                    this.state.extraModificators.dexterity
+                      ? this.state.basicModificators.dexterity + (parseFloat(this.state.extraModificators.dexterity))
+                      : this.state.basicModificators.dexterity
+                  }
+                  readOnly />
+                <input
+                  type="number"
+                  value={
+                    this.state.extraModificators.constitution
+                      ? this.state.basicModificators.constitution + (parseFloat(this.state.extraModificators.constitution))
+                      : this.state.basicModificators.constitution
+                  }
+                  readOnly />
+                <input
+                  type="number"
+                  value={
+                    this.state.extraModificators.intelligence
+                      ? this.state.basicModificators.intelligence + (parseFloat(this.state.extraModificators.intelligence))
+                      : this.state.basicModificators.intelligence
+                  }
+                  readOnly />
+                <input type="number"
+                       value={
+                         this.state.extraModificators.wisdom
+                           ? this.state.basicModificators.wisdom + (parseFloat(this.state.extraModificators.wisdom))
+                           : this.state.basicModificators.wisdom
+                       }
+                       readOnly />
+                <input type="number"
+                       value={
+                         this.state.extraModificators.charisma
+                           ? this.state.basicModificators.charisma + (parseFloat(this.state.extraModificators.charisma))
+                           : this.state.basicModificators.charisma
+                       }
+                       readOnly />
+
+
+              </div>
+            </div>
+          </div>
+
+          <div className="character-graphic-container">
+            <div className="character-graphic">
+              Obrazek
+
+            </div>
+          </div>
+        </div>
+        <div className="chosen-options">
           <form className="new-character-form">
 
-          {/*inputy*/}
-            <label>
-              <span>
-                character's name
-              </span>
-              <input
-                type="text"
-                name="characterName"
-                value={this.state.characterName}
-                onChange={this.handleNameChange}/>
-            </label>
-            <label>
-              <span>
-                character's surname
-              </span>
-              <input
-                type="text"
-                name="characterSurname"
-                value={this.state.characterSurname}
-                onChange={this.handleSurnameChange}/>
-            </label>
+            {/*inputy*/}
 
-          {/*opcje*/}
-
-            <label>
-              <span>
-                race
-              </span>
-              <select
-                value={this.state.race}
-                onChange={this.handleRaceChange}>
-                {elements.races.map(element => <option key={element} value={element}>{element}</option>)}
-              </select>
-            </label>
-            <label>
-              <span>
-                class
-              </span>
-              <select
-                value={this.state.class}
-                onChange={this.handleClassChange}>
-                {elements.classes.map(element => <option key={element} value={element}>{element}</option>)}
-              </select>
-            </label>
-            <label>
-              <span>
-                armor class
-              </span>
-              <input
-                type="number"
-                name="armorClass"
-                value={this.state.armorClass}
-                onChange={this.handleArmorClass}/>
-            </label>
-            <label>
-              <span>
-                initiative
-              </span>
-              <input
-                type="number"
-                name="initiative"
-                value={this.state.initiative}
-                onChange={this.handleInitiative}/>
-            </label>
-            <label>
-              <span>
-                hit points
-              </span>
-              <input
-                type="number"
-                name="hitPoints"
-                value={this.state.hitPoints}
-                onChange={this.handleHitPoints}/>
-            </label>
             <label>
               <span>
                 abilities
@@ -331,98 +435,13 @@ export class NewCharacter extends Component {
               <button onClick={this.handleAbilitiesChosen}>add</button>
             </label>
           </form>
-          </div>
-
-
-          <div>
-            basic modificators
-            <div>
-              <input value={this.state.basicModificators.strength} readOnly />
-              <input value={this.state.basicModificators.dexterity} readOnly />
-              <input value={this.state.basicModificators.constitution} readOnly />
-              <input value={this.state.basicModificators.intelligence} readOnly />
-              <input value={this.state.basicModificators.wisdom} readOnly />
-              <input value={this.state.basicModificators.charisma} readOnly />
-            </div>
-
-          </div>
-
-          <div>
-            extra modificators
-            <div>
-              <input type="number" name="strength" value={this.state.extraModificators.strength} onChange={this.addExtraModificator}/>
-              <input type="number" name="dexterity" value={this.state.extraModificators.dexterity} onChange={this.addExtraModificator} />
-              <input type="number" name="constitution" value={this.state.extraModificators.constitution} onChange={this.addExtraModificator} />
-              <input type="number" name="intelligence" value={this.state.extraModificators.intelligence} onChange={this.addExtraModificator} />
-              <input type="number" name="wisdom" value={this.state.extraModificators.wisdom} onChange={this.addExtraModificator} />
-              <input type="number" name="charisma" value={this.state.extraModificators.charisma} onChange={this.addExtraModificator} />
-            </div>
-
-          </div>
-          <div>
-            modificators
-
-            <input
-              type="number"
-              value={
-                this.state.extraModificators.strength
-                ? this.state.basicModificators.strength + (parseFloat(this.state.extraModificators.strength))
-                : this.state.basicModificators.strength
-              }
-                readOnly />
-            <input
-              type="number"
-              value={
-                this.state.extraModificators.dexterity
-                  ? this.state.basicModificators.dexterity + (parseFloat(this.state.extraModificators.dexterity))
-                  : this.state.basicModificators.dexterity
-              }
-              readOnly />
-            <input
-              type="number"
-              value={
-                this.state.extraModificators.constitution
-                  ? this.state.basicModificators.constitution + (parseFloat(this.state.extraModificators.constitution))
-                  : this.state.basicModificators.constitution
-              }
-              readOnly />
-            <input
-              type="number"
-              value={
-                this.state.extraModificators.intelligence
-                  ? this.state.basicModificators.intelligence + (parseFloat(this.state.extraModificators.intelligence))
-                  : this.state.basicModificators.intelligence
-              }
-              readOnly />
-            <input type="number"
-                   value={
-                     this.state.extraModificators.wisdom
-                       ? this.state.basicModificators.wisdom + (parseFloat(this.state.extraModificators.wisdom))
-                       : this.state.basicModificators.wisdom
-                   }
-                   readOnly />
-            <input type="number"
-                   value={
-                     this.state.extraModificators.charisma
-                       ? this.state.basicModificators.charisma + (parseFloat(this.state.extraModificators.charisma))
-                       : this.state.basicModificators.charisma
-                   }
-                   readOnly />
-
-
-          </div>
-
-
-          <div>Obrazek</div>
-        </div>
-        <div className="chosen-options">
           <ul className="chosen-abilities-container">
             abilities
             {this.state.abilities.map(element => <li key={element}>{element}<button onClick={()=>this.removeAbility(element)}>remove</button></li>)}
           </ul>
           <textarea name="bio" value={this.state.bio} onChange={this.handleBio}/>
+          <button onClick={() => this.props.onDone(this.state)}>save</button>
         </div>
-        <button onClick={() => this.props.onDone(this.state)}>save</button>
       </div>
     )
   }

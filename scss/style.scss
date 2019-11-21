@@ -5,6 +5,16 @@ html {
   font-family: 'Archivo Narrow', sans-serif;
 }
 
+.vertical {
+  display: flex;
+  flex-direction: column;
+}
+
+.horizontal {
+  display: flex;
+  flex-direction: row;
+}
+
 //Główny kontener
 .container {
   width: 100vw;
@@ -13,11 +23,10 @@ html {
 
   .main-container {
     width: 80%;
-    height: 100%;
+    height: 95vh;
     margin: 0 auto;
     background-color: #1d1c1f;
-    display: flex;
-    flex-direction: column;
+    overflow: auto;
   }
 }
 
@@ -26,8 +35,6 @@ html {
   width: 80%;
   margin: 0 auto;
   height: 5vh;
-  display: flex;
-  flex-direction: row;
   background-color: #565559;
   font-size: 1.5rem;
 
@@ -61,64 +68,81 @@ html {
 //Nowy charakter
 
 .new-character-container {
-  color: white;
-  display: flex;
-  flex-direction: column;
+  color: #ffffff;
+  font-size: 1.4rem;
+  padding: 1vw;
 
-  .options {
-    display: flex;
-    flex-direction: row;
+  .basic-information {
 
-    .attributes-container {
-      display: flex;
-      flex-direction: column;
-      width: 45%;
-      text-align: right;
+    .description-container {
+      width: 50%;
+      padding: 1vw;
+
+      .basic-information-name {
+        padding: 1vw;
+
+        span {
+          display: block;
+          width: 25vw;
+          height: 2vw;
+          text-transform: uppercase;
+          padding: .5vw 0;
+        }
+
+        input, select {
+          font-size: 1.5rem;
+          width: 25vw;
+        }
+      }
+
+      .basic-information-modificators {
+        padding: 1vw;
+
+        .attributes {
+          margin-right: 5vw;
+        }
+
+        .modificator-header {
+          display: block;
+          width: 10vw;
+          height: 5vh;
+          font-size: 1.3rem;
+          text-transform: uppercase;
+        }
+
+        .modificators {
+          align-items: flex-start;
+        }
+
+        label {
+          display: flex;
+          flex-direction: row;
+        }
+
+        span {
+          display: block;
+          width: 8vw
+        }
+
+        input {
+          width: 5vw
+        }
+      }
     }
 
-    .new-character-form {
-      display: flex;
-      flex-direction: column;
-      text-align: right;
+    .character-graphic-container {
+      width: 50%;
+      position: relative;
 
+      .character-graphic {
+        width: 20vw;
+        height: 20vw;
+        background-color: #565559;
+        position: absolute;
+        top: 15%;
+        right: 25%
+      }
     }
-
-    span {
-      width: 30%
-    }
-
-    input {
-      width: 60%
-    }
-
-    .attr {
-      width: 20%
-    }
-
-    select {
-      width: 60%
-    }
-
-    .abilities-to-select {
-      width: 40%
-    }
-
-    button {
-      width: 20%
-    }
-  }
-}
-
-.chosen-options {
-  display: flex;
-  flex-direction: row;
-
-  .chosen-abilities-container {
-    width: 50%
-  }
-
-  textarea {
-    width: 50%
   }
 }
 

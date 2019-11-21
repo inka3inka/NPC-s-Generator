@@ -95,8 +95,8 @@ export class EditCharacter extends Component {
   render() {
     return (
       <div className="new-character-container">
-        <div className="options">
-          <div className="attributes-container">
+        <div className="basic-information">
+          <div className="basic-information-modificators">
 
             {/*Atrybuty*/}
 
