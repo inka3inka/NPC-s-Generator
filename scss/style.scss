@@ -2,7 +2,7 @@
 
 html {
   font-size: 1vw;
-  font-family: 'Archivo Narrow', sans-serif;
+  font-family: 'Rye', cursive;
 }
 
 .vertical {
@@ -23,7 +23,7 @@ html {
 
   .main-container {
     width: 80%;
-    height: 95vh;
+    height: 93vh;
     margin: 0 auto;
     background-color: #323036;
     overflow: auto;
@@ -34,13 +34,13 @@ html {
 .nav-container {
   width: 80%;
   margin: 0 auto;
-  height: 5vh;
+  height: 7vh;
   background-color: #565559;
   font-size: 1.5rem;
 
   .nav-element {
     width: 12vw;
-    height: 5vh;
+    height: 7vh;
     margin-left: 1vw;
     display: flex;
     align-items: center;
@@ -104,7 +104,7 @@ html {
 
         .modificator-header {
           display: block;
-          width: 10vw;
+          width: 12vw;
           height: 6vh;
           font-size: 1.3rem;
           text-transform: uppercase;
@@ -121,14 +121,15 @@ html {
 
         span {
           display: block;
-          width: 8vw
+          width: 10vw
         }
 
         input {
-          width: 5vw;
+          width: 7vw;
           height: 2vw;
           margin-bottom: .3vw;
-          font-size: 1rem
+          font-size: 1rem;
+          text-align: center;
         }
       }
     }
@@ -150,6 +151,7 @@ html {
 }
 
 .chosen-options {
+  padding: 0 2vw 0;
 
   .btn {
     width: 7vw;
@@ -214,6 +216,8 @@ html {
       font-size: 1.3rem;
       display: block;
       outline: none;
+      margin-top: 1vh;
+      resize: vertical;
     }
   }
 }
@@ -224,4 +228,90 @@ html {
   color: white
 }
 
+//Character's sheet
+
+.characters-container {
+
+  width: 85%;
+  margin: 2vh auto;
+  border: 9px groove #B3781E;
+  border-radius: 0px 40px 0px 0px;
+  background-color: #fffef7;
+  padding: 2vh 1vw;
+
+  .main-information-container {
+
+    .main-information-name {
+      font-size: 2rem;
+      margin-bottom: 4vh;
+      text-transform: capitalize;
+      display: block;
+
+      &::first-letter {
+        font-size: 2.7rem;
+      }
+
+
+    }
+
+    .main-information-other {
+      font-size: 1.5rem;
+      line-height: 1.8rem;
+      margin-bottom: 7vh;
+      position: relative;
+
+      &::after {
+        content: "";
+        display: block;
+        height: 2vh;
+        background-image: url('../images/dice1.jpeg');
+        background-repeat: repeat-x;
+        background-size: contain;
+        border: none;
+        margin: 2vh 0;
+        width: 35vw;
+        position: absolute;
+      }
+    }
+
+    .photo-container {
+      position: relative;
+      width: 50%;
+
+      .photo {
+        width: 15vw;
+        height: 15vw;
+        background-color: #565559;
+        position: absolute;
+        top: 8%;
+        left: 65%
+      }
+    }
+  }
+
+  .other-information-container {
+
+    .abilities {
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    .element {
+      font-size: 1.1rem;
+      padding: 1vh 0;
+    }
+
+    .tile {
+      border: 2px solid black;
+      border-radius: 5px;
+      width: 10vw;
+      height: 4.5vh;
+      margin: .5vw;
+      padding: .1vh .2vw;
+      display: flex;
+      align-items: center;
+    }
+  }
+
+}
 
