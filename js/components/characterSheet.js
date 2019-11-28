@@ -27,14 +27,14 @@ export class CharacterSheet extends Component {
       <div className="characters-container vertical">
 
         <div className="main-information-container horizontal">
-          <div className="vertical">
-          <div className="main-information-name vertical"> {this.props.character.characterName} {this.props.character.characterSurname}</div>
-            <div className="main-information-other">
-              <div>{this.props.character.class}</div>
-              <div>{this.props.character.race}</div>
+          <div className="information vertical">
+            <div className="main-information-name vertical"> {this.props.character.characterName} {this.props.character.characterSurname}</div>
+              <div className="main-information-other">
+                <div>{this.props.character.class}</div>
+                <div>{this.props.character.race}</div>
+              </div>
             </div>
-          </div>
-          <div className="photo-container"> <div className="photo"/> </div>
+            <div className="photo-container"> <div className="photo"/> </div>
         </div>
 
         <div className="other-information-container vertical">
