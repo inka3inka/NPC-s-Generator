@@ -6,6 +6,7 @@ import {Characters} from "./characters";
 import {NewCharacter} from "./addNewCharacter";
 import {EditCharacter} from "./editCharacter";
 import {CharacterSheet} from "./characterSheet";
+import {About} from "./about";
 
 export class MainContainer extends Component {
   state = {
@@ -43,6 +44,7 @@ export class MainContainer extends Component {
             <Route path="/addNewCharacter">
               <NewCharacter onDone={this.showCharacters}/>
             </Route>
+            <Route path="/about" component={About}/>
             <Route path="/editCharacter/:characterId" children={({ match: { params: { characterId}}}) => {
 
               return <EditCharacter character={this.state.characters[characterId]} id={characterId} onDone={this.showEditedCharacter}/>

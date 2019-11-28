@@ -178,8 +178,6 @@ export class NewCharacter extends Component {
   };
 
 
-
-
   render() {
     return (
       <div className="new-character-container vertical">
