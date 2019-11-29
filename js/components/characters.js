@@ -2,35 +2,22 @@ import React, {Component} from 'react';
 import { HashRouter as Router , Link} from'react-router-dom';
 export class Characters extends Component {
   state = {
-    actuallyBaseOfCharacters: this.props.baseOfCharacters
-  }
-  remover = (elm) => {
-    const currentBase = this.state.actuallyBaseOfCharacters.filter(element => element !== elm);
+    baseOfCharactersAfterRemove: this.props.baseOfCharacters
+  };
+
+  remover = (removedElm) => {
+    const currentBase = [...this.state.baseOfCharactersAfterRemove];
+    currentBase.splice(removedElm.id, 1);
     this.setState({
-      actuallyBaseOfCharacters: currentBase
-    })
-  }
+      baseOfCharactersAfterRemove: currentBase
+    }, () => this.props.onDone(this.state.baseOfCharactersAfterRemove))
+  };
+
   render() {
     return (
       <div className="all-characters-container">
         <h1>your characters</h1>
-        <div className="character-tile-container horizontal">
-          <div className="character-tile vertical">
-            <div>Abelardo Cadmael</div>
-            <div>rouge</div>
-            <div>human</div>
-          </div>
-          <div className="tile-graphic-container">
-            <div className="tile-graphic" />
-          </div>
-          <div className="buttons-container vertical">
-            <Router>
-              <Link ><button>open</button></Link>
-              <Link><button>edit</button></Link>
-              <Link><button>remove</button></Link>
-            </Router>
-          </div>
-        </div>
+
         {this.props.baseOfCharacters.map((element, characterId) => {
           return (
             <div className="character-tile-container horizontal" key={element.characterSurname}>
@@ -47,7 +34,7 @@ export class Characters extends Component {
                   <Link to={`/characterSheet/${characterId}`}><button>open</button></Link>
                   <Link to={`/editCharacter/${characterId}`}><button>edit</button></Link>
                 </Router>
-                <button onClick={() => {this.remover; this.props.onDone(this.state.actuallyBaseOfCharacters)}}>remove</button>
+                <button onClick={() => {this.remover(element.characterName)}}>remove</button>
               </div>
             </div>
           )

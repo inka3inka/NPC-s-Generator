@@ -30,6 +30,12 @@ export class MainContainer extends Component {
     })
   };
 
+  renderStateAfterRemove = (base) => {
+    this.setState({
+      characters: base
+    })
+  }
+
   render() {
     return (
       <div className="container">
@@ -39,7 +45,7 @@ export class MainContainer extends Component {
           <Switch>
             <Route path="/mainPage" component={MainPage} />
             <Route path="/characters">
-              <Characters baseOfCharacters={this.state.characters} onDone={this.editButton}/>
+              <Characters baseOfCharacters={this.state.characters} onDone={this.renderStateAfterRemove}/>
             </Route>
             <Route path="/addNewCharacter">
               <NewCharacter onDone={this.showCharacters}/>
