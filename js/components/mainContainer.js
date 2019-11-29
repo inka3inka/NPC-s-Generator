@@ -30,6 +30,10 @@ export class MainContainer extends Component {
     })
   };
 
+  showCurrentCharacters = () => {
+    
+  }
+
   render() {
     return (
       <div className="container">
@@ -39,7 +43,7 @@ export class MainContainer extends Component {
           <Switch>
             <Route path="/mainPage" component={MainPage} />
             <Route path="/characters">
-              <Characters baseOfCharacters={this.state.characters} onDone={this.editButton}/>
+              <Characters baseOfCharacters={this.state.characters} onDone={this.showCurrentCharacters}/>
             </Route>
             <Route path="/addNewCharacter">
               <NewCharacter onDone={this.showCharacters}/>

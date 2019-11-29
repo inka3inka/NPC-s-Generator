@@ -30,7 +30,7 @@ html {
   }
 }
 
-//Pasek nawigacyjny
+//Navigation
 .nav-container {
   width: 80%;
   margin: 0 auto;
@@ -65,7 +65,7 @@ html {
   }
 }
 
-//Nowy charakter
+//New charakter
 
 .new-character-container {
   color: #ffffff;
@@ -222,11 +222,6 @@ html {
   }
 }
 
-
-
-.all-characters-container {
-  color: white
-}
 
 //Character's sheet
 
@@ -405,4 +400,93 @@ input[type=checkbox]:checked ~ div.curtain__panel--left {
 input[type=checkbox]:checked ~ div.curtain__panel--right {
   transform: translateX(0);
 }
+
+//All characters
+
+.all-characters-container {
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  h1 {
+    font-size: 1.5rem;
+    margin: 3vh 1vw;
+  }
+
+  .character-tile-container {
+    width: 70%;
+    height: 20vh;
+    border: 3px solid goldenrod;
+    border-radius: 10px;
+    padding: 1vh 2vw;
+    margin: 1vh 0;
+    background-color: black;
+    font-size: 1.5rem;
+
+    &:hover {
+      background-color: goldenrod;
+      color: black;
+      border: 3px solid black;
+    }
+
+    .character-tile {
+      width: 45%;
+      justify-content: space-around;
+    }
+
+    .tile-graphic-container {
+      width: 40%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      .tile-graphic {
+        width: 17vh;
+        height: 17vh;
+        background-color: purple;
+        border-radius: 50%;
+      }
+    }
+
+    .buttons-container {
+      width: 15%;
+      justify-content: space-around;
+
+      button {
+        width: 7vw;
+        height: 4vh;
+        margin-left: 1vw;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: none;
+        border-radius: 5px;
+        font-family: 'Rye', cursive;
+        font-size: 1rem;
+        text-transform: uppercase;
+
+        &:link {
+          text-decoration: none;
+          color: #ffffff;
+        }
+
+        &:visited {
+          color: #ffffff;
+        }
+
+        &:hover {
+          color: goldenrod;
+          cursor: pointer;
+          background-color: black;
+        }
+
+        &:focus {
+          color: #000000;
+        }
+      }
+    }
+  }
+}
+
 
