@@ -17,7 +17,9 @@ export class NewCharacter extends Component {
     basicModificators: {strength: "", dexterity: "", constitution: "", intelligence: "", wisdom: "", charisma: ""},
     extraModificators: {strength: "", dexterity: "", constitution: "", intelligence: "", wisdom: "", charisma: ""},
     modificators: {strength: "", dexterity: "", constitution: "", intelligence: "", wisdom: "", charisma: ""},
-    currentHeight: '20vh'
+    currentHeight: '20vh',
+    selectedFile: 'null',
+    isLoaded: false
   };
 
   //Metody obsługujące inputy
@@ -177,6 +179,22 @@ export class NewCharacter extends Component {
     })
   };
 
+  fileSelectedHandler = event => {
+    const file = event.target.files[0];
+    file.arrayBuffer().then(buffer => {
+      const base64 = btoa(String.fromCharCode(...new Uint8Array(buffer)));
+      this.setState(
+        {
+          selectedFile: {
+            ...file,
+            url: `data:png;base64,${base64}`
+          },
+          isLoaded: true
+        },
+        () => console.log(this.state.selectedFile, this.state.isLoaded)
+      );
+    });
+  };
 
   render() {
     return (
@@ -424,8 +442,17 @@ export class NewCharacter extends Component {
           </div>
 
           <div className="character-graphic-container">
-            <div className="character-graphic">
-              Obrazek
+            <div className="character-graphic" style={{
+              backgroundImage: this.state.isLoaded ? `url(${this.state.selectedFile.url})` : "none"
+            , backgroundSize: 'cover'}}>
+              <input
+                style={{display: 'none'}}
+                type="file"
+                onChange={this.fileSelectedHandler}
+                ref={fileInput => this.fileInput = fileInput}
+              />
+              <button onClick={() => {this.fileInput.click()}}>pick up a file</button>
+
 
             </div>
           </div>

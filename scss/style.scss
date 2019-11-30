@@ -271,59 +271,124 @@ html {
    background-repeat: no-repeat;
  }
 //Curtain
-.curtain {
-  width: 100%;
-  height: 93vh;
-  overflow: hidden;
+//.curtain {
+//  width: 100%;
+//  height: 93vh;
+//  overflow: hidden;
+//}
+//.curtain__wrapper {
+//  width: 100%;
+//  height: 100%;
+//  position: relative;
+//  z-index: 1;
+//  .enter-button {
+//    position: absolute;
+//    top: 50%;
+//    left: 50%;
+//    z-index: 3;
+//  }
+//}
+//.curtain__panel {
+//  background: saddlebrown;
+//  width: 50%;
+//  height: 93vh;
+//  float: left;
+//  position: relative;
+//  z-index: 2;
+//  transition: all 1s ease-out;
+//}
+//.curtain__panel--left {
+//  transform: translateX(-100%);
+//}
+//.curtain__panel--right {
+//  transform: translateX(100%);
+//}
+//.curtain__prize {
+//  background: #333;
+//  position: absolute;
+//  z-index: 1;
+//  width: 80%;
+//  height: 93vh;
+//}
+//input[type=checkbox] {
+//  position: absolute;
+//  cursor: pointer;
+//  width: 100%;
+//  height: 100%;
+//  z-index: 100;
+//  opacity: 0;
+//}
+//input[type=checkbox]:checked ~ div.curtain__panel--left {
+//  transform: translateX(0);
+//}
+//input[type=checkbox]:checked ~ div.curtain__panel--right {
+//  transform: translateX(0);
+//}
+
+//Main Page
+
+.first-text {
+  width: 50%;
+  height: 25vh;
+  text-align: center;
+  font-size: 2.5rem;
+  word-spacing: 5px;
+  color: goldenrod;
+  text-shadow: rgb(0, 0, 0) 16px 13px 2px;
+  position: absolute;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  top: 35%;
+  left: 25%;
 }
-.curtain__wrapper {
-  width: 100%;
-  height: 100%;
-  position: relative;
-  z-index: 1;
-  .enter-button {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    z-index: 3;
+
+.enter-button {
+  width: 12vw;
+  height: 6vh;
+  font-size: 2rem;
+  border-radius: 10px;
+  font-family: 'Rye', cursive;
+  text-transform: uppercase;
+  border: none;
+  cursor: pointer;
+
+  &:hover {
+    background-color: black;
+    color: goldenrod;
   }
 }
-.curtain__panel {
-  background: saddlebrown;
-  width: 50%;
-  height: 93vh;
-  float: left;
-  position: relative;
-  z-index: 2;
-  transition: all 1s ease-out;
+
+@keyframes visible-text-2 {
+  0% {
+    opacity: 0
+  }
+  50% {
+    opacity: 0
+  }
+  100% {
+    opacity: 1
+  }
 }
-.curtain__panel--left {
-  transform: translateX(-100%);
+
+.introduction-text {
+  animation-name: visible-text-1;
+  animation-duration: 4s;
 }
-.curtain__panel--right {
-  transform: translateX(100%);
+
+.enter-text {
+  animation-name: visible-text-2;
+  animation-duration: 4s;
 }
-.curtain__prize {
-  background: #333;
-  position: absolute;
-  z-index: 1;
-  width: 80%;
-  height: 93vh;
+
+.enter-button {
+  animation-name: visible-text-2;
+  animation-duration: 8s;
 }
-input[type=checkbox] {
-  position: absolute;
-  cursor: pointer;
-  width: 100%;
-  height: 100%;
-  z-index: 100;
-  opacity: 0;
-}
-input[type=checkbox]:checked ~ div.curtain__panel--left {
-  transform: translateX(0);
-}
-input[type=checkbox]:checked ~ div.curtain__panel--right {
-  transform: translateX(0);
-}
+
+
 //All characters
 .all-characters-container {
   color: white;
@@ -333,6 +398,7 @@ input[type=checkbox]:checked ~ div.curtain__panel--right {
   h1 {
     font-size: 1.5rem;
     margin: 3vh 1vw;
+    text-transform: capitalize;
   }
   .character-tile-container {
     width: 70%;
