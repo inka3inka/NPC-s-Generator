@@ -22,10 +22,13 @@ export class MainContainer extends Component {
   };
 
   showEditedCharacter = (editedCharacter) => {
-    const characters = [...this.state.characters];
+    console.log(editedCharacter);
+    let characters = [...this.state.characters];
     const toEdit = editedCharacter;
-    characters.splice(characters.indexOf(editedCharacter), 1);
+    console.log(toEdit);
+    characters = characters.filter(element => element.characterName !== editedCharacter.characterName);
     characters.push(toEdit);
+    console.log(toEdit);
     this.setState({
       characters: characters
     })
