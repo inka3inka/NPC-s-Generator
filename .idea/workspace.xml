@@ -4,7 +4,6 @@
     <list default="true" id="4bfadad5-680b-4ee0-b4f3-e7b1ffff7752" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/js/components/addNewCharacter.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/components/addNewCharacter.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scss/style.scss" beforeDir="false" afterPath="$PROJECT_DIR$/scss/style.scss" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -74,8 +73,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/components/addNewCharacter.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="209">
-              <caret line="434" column="69" lean-forward="true" selection-start-line="434" selection-start-column="69" selection-end-line="434" selection-end-column="69" />
+            <state relative-caret-position="184">
+              <caret line="428" lean-forward="true" selection-start-line="428" selection-end-line="428" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
               </folding>
@@ -229,12 +228,12 @@
       <workItem from="1574442625325" duration="9053000" />
       <workItem from="1574455117285" duration="5314000" />
       <workItem from="1574970723792" duration="10621000" />
-      <workItem from="1575068423395" duration="5003000" />
+      <workItem from="1575068423395" duration="6383000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="124006000" />
+    <option name="totallyTimeSpent" value="125386000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="67" y="25" width="1853" height="1055" extended-state="6" />
@@ -392,8 +391,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/js/components/addNewCharacter.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="434" column="69" lean-forward="true" selection-start-line="434" selection-start-column="69" selection-end-line="434" selection-end-column="69" />
+        <state relative-caret-position="184">
+          <caret line="428" lean-forward="true" selection-start-line="428" selection-end-line="428" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
           </folding>
