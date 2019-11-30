@@ -5,13 +5,6 @@ export class Characters extends Component {
     baseOfCharactersAfterRemove: this.props.baseOfCharacters
   };
 
-  remover = (removedElm) => {
-    const currentBase = [...this.state.baseOfCharactersAfterRemove];
-    currentBase.splice(removedElm.id, 1);
-    this.setState({
-      baseOfCharactersAfterRemove: currentBase
-    }, () => this.props.onDone(this.state.baseOfCharactersAfterRemove))
-  };
 
   render() {
     return (
@@ -34,7 +27,7 @@ export class Characters extends Component {
                   <Link to={`/characterSheet/${characterId}`}><button>open</button></Link>
                   <Link to={`/editCharacter/${characterId}`}><button>edit</button></Link>
                 </Router>
-                <button onClick={() => {this.remover(element.characterName)}}>remove</button>
+                <button onClick={() => this.props.onDone(element.characterName)}>remove</button>
               </div>
             </div>
           )
