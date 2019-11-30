@@ -23,16 +23,20 @@ export class MainContainer extends Component {
 
   showEditedCharacter = (editedCharacter) => {
     const characters = [...this.state.characters];
-    characters.splice(editedCharacter.id, 1);
-    characters.push(editedCharacter);
+    const toEdit = editedCharacter;
+    characters.splice(characters.indexOf(editedCharacter), 1);
+    characters.push(toEdit);
     this.setState({
       characters: characters
     })
   };
 
-  renderStateAfterRemove = (base) => {
+  renderStateAfterRemove = (character) => {
+    console.log(character);
+    let characters = [...this.state.characters];
+    characters = characters.filter(element => element.characterName !== character);
     this.setState({
-      characters: base
+      characters: characters
     })
   }
 
@@ -59,7 +63,7 @@ export class MainContainer extends Component {
             </Route>
             <Route path="/characterSheet/:characterId" children={({ match: { params: { characterId}}}) => {
 
-              return <CharacterSheet character={this.state.characters[characterId]} id={characterId} />
+              return <CharacterSheet character={this.state.characters[characterId]} id={characterId} onDone={this.renderStateAfterRemove}/>
             }}>
 
             </Route>
