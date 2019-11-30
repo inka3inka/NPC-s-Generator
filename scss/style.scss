@@ -191,24 +191,30 @@ html {
   border-radius: 0px 40px 0px 0px;
   background-color: #fffef7;
   padding: 2vh 1vw;
+
   .main-information-container {
+
     .information {
       width: 50%;
+
       .main-information-name {
         font-size: 2rem;
         margin-bottom: 4vh;
         text-transform: capitalize;
         display: block;
+
         &::first-letter {
           font-size: 2.7rem;
         }
       }
     }
+
     .main-information-other {
       font-size: 1.5rem;
       line-height: 1.8rem;
       margin-bottom: 7vh;
       position: relative;
+
       &::after {
         content: "";
         display: block;
@@ -222,9 +228,11 @@ html {
         position: absolute;
       }
     }
+
     .photo-container {
       position: relative;
       width: 50%;
+
       .photo {
         width: 15vw;
         height: 15vw;
@@ -236,14 +244,17 @@ html {
     }
   }
   .other-information-container {
+
     .abilities {
       display: flex;
       flex-wrap: wrap;
     }
+
     .element {
       font-size: 1.1rem;
       padding: 1vh 0;
     }
+
     .tile {
       border: 2px solid black;
       border-radius: 5px;
@@ -256,14 +267,17 @@ html {
     }
   }
 }
+
 /* width */
 ::-webkit-scrollbar {
   width: 2vw;
 }
+
 /* Track */
 ::-webkit-scrollbar-track {
   background: #323036;
-}pit
+}
+
    /* Handle */
  ::-webkit-scrollbar-thumb {
    background-image: url('../images/output-onlinepngtools (5).png');
@@ -361,6 +375,15 @@ html {
   }
 }
 
+@keyframes visible-text-1 {
+  0% {
+    opacity: 0
+  }
+  100% {
+    opacity: 1
+  }
+}
+
 @keyframes visible-text-2 {
   0% {
     opacity: 0
@@ -395,6 +418,7 @@ html {
   display: flex;
   flex-direction: column;
   align-items: center;
+
   h1 {
     font-size: 1.5rem;
     margin: 3vh 1vw;
@@ -409,20 +433,24 @@ html {
     margin: 1vh 0;
     background-color: black;
     font-size: 1.5rem;
+
     &:hover {
       background-color: goldenrod;
       color: black;
       border: 3px solid black;
     }
+
     .character-tile {
       width: 45%;
       justify-content: space-around;
     }
+
     .tile-graphic-container {
       width: 40%;
       display: flex;
       justify-content: center;
       align-items: center;
+
       .tile-graphic {
         width: 17vh;
         height: 17vh;
@@ -430,9 +458,11 @@ html {
         border-radius: 50%;
       }
     }
+
     .buttons-container {
       width: 15%;
       justify-content: space-around;
+
       button {
         width: 7vw;
         height: 4vh;
@@ -445,22 +475,51 @@ html {
         font-family: 'Rye', cursive;
         font-size: 1rem;
         text-transform: uppercase;
+
         &:link {
           text-decoration: none;
           color: #ffffff;
         }
+
         &:visited {
           color: #ffffff;
         }
+
         &:hover {
           color: goldenrod;
           cursor: pointer;
           background-color: black;
         }
+
         &:focus {
           color: #000000;
         }
       }
+    }
+  }
+}
+
+//About
+
+.about-container {
+  color: white;
+  margin: 4vh 2vw;
+  font-size: 1.5rem;
+  line-height: 1.8rem;
+
+  p {
+    margin-bottom: 1.5vh;
+    text-align: justify;
+
+    &::first-letter {
+      font-size: 2.2rem;
+    }
+
+    &:last-child {
+      text-transform: uppercase;
+      margin-top: 3vh;
+      font-size: 2.2rem;
+      letter-spacing: .5rem;
     }
   }
 }

@@ -17,7 +17,9 @@ export class EditCharacter extends Component {
     basicModificators: this.props.character.basicModificators,
     extraModificators: this.props.character.extraModificators,
     modificators: this.props.character.modificators,
-    currentHeight: this.props.character.currentHeight
+    currentHeight: this.props.character.currentHeight,
+    selectedFile: this.props.character.selectedFile,
+    isLoaded: true
   };
 
   //Metody obsługujące inputy
@@ -72,6 +74,23 @@ export class EditCharacter extends Component {
         abilities: abilities,
       }, () => console.log(this.state.abilities),
       this.increasingHeight(this.state.abilities.length))
+  };
+
+  fileSelectedHandler = event => {
+    const file = event.target.files[0];
+    file.arrayBuffer().then(buffer => {
+      const base64 = btoa(String.fromCharCode(...new Uint8Array(buffer)));
+      this.setState(
+        {
+          selectedFile: {
+            ...file,
+            url: `data:png;base64,${base64}`
+          },
+          isLoaded: true
+        },
+        () => console.log(this.state.selectedFile, this.state.isLoaded)
+      );
+    });
   };
 
   removeAbility = elm => {
@@ -424,8 +443,17 @@ export class EditCharacter extends Component {
           </div>
 
           <div className="character-graphic-container">
-            <div className="character-graphic">
-              Obrazek
+            <div className="character-graphic" style={{
+              backgroundImage: this.state.isLoaded ? `url(${this.state.selectedFile.url})` : "none"
+              , backgroundSize: 'cover'}}>
+              <input
+                style={{display: 'none'}}
+                type="file"
+                onChange={this.fileSelectedHandler}
+                ref={fileInput => this.fileInput = fileInput}
+              />
+              <button onClick={() => {this.fileInput.click()}}>pick up a file</button>
+
 
             </div>
           </div>

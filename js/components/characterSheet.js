@@ -34,7 +34,7 @@ export class CharacterSheet extends Component {
                 <div>{this.props.character.race}</div>
               </div>
             </div>
-            <div className="photo-container"> <div className="photo"/> </div>
+            <div className="photo-container"> <div className="photo" style={{backgroundImage: `url(${this.props.character.selectedFile.url})`, backgroundSize: 'cover'}}/> </div>
         </div>
 
         <div className="other-information-container vertical">

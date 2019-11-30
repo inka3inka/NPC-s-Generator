@@ -27,7 +27,7 @@ export class Characters extends Component {
                 <div>{element.race}</div>
               </div>
               <div className="tile-graphic-container">
-                <div className="tile-graphic" />
+                <div className="tile-graphic" style={{backgroundImage: `url(${element.selectedFile.url})`, backgroundSize: "cover"}}/>
               </div>
               <div className="buttons-container vertical">
                 <Router>
