@@ -179,12 +179,22 @@ export class NewCharacter extends Component {
     })
   };
 
-  fileSelectedHandler = (event) => {
-    this.setState({
-      selectedFile: event.target.files[0],
-      isLoaded: true
-    }, () => console.log(this.state.selectedFile, this.state.isLoaded))
-  }
+  fileSelectedHandler = event => {
+    const file = event.target.files[0];
+    file.arrayBuffer().then(buffer => {
+      const base64 = btoa(String.fromCharCode(...new Uint8Array(buffer)));
+      this.setState(
+        {
+          selectedFile: {
+            ...file,
+            url: `data:png;base64,${base64}`
+          },
+          isLoaded: true
+        },
+        () => console.log(this.state.selectedFile, this.state.isLoaded)
+      );
+    });
+  };
 
   render() {
     return (
@@ -432,7 +442,9 @@ export class NewCharacter extends Component {
           </div>
 
           <div className="character-graphic-container">
-            <div className="character-graphic" style={{backgroundImage: this.state.isLoaded ? `url(${this.state.selectedFile.name})` : 'none'}}>
+            <div className="character-graphic" style={{
+              backgroundImage: this.state.isLoaded ? `url(${this.state.selectedFile.url})` : "none"
+            , backgroundSize: 'cover'}}>
               <input
                 style={{display: 'none'}}
                 type="file"
