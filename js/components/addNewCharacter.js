@@ -17,7 +17,8 @@ export class NewCharacter extends Component {
     basicModificators: {strength: "", dexterity: "", constitution: "", intelligence: "", wisdom: "", charisma: ""},
     extraModificators: {strength: "", dexterity: "", constitution: "", intelligence: "", wisdom: "", charisma: ""},
     modificators: {strength: "", dexterity: "", constitution: "", intelligence: "", wisdom: "", charisma: ""},
-    currentHeight: '20vh'
+    currentHeight: '20vh',
+    selectedFile: 'null'
   };
 
   //Metody obsługujące inputy
@@ -177,6 +178,11 @@ export class NewCharacter extends Component {
     })
   };
 
+  fileSelectedHandler = (event) => {
+    this.setState({
+      selectedFile: event.target.files[0]
+    })
+  }
 
   render() {
     return (
@@ -425,7 +431,16 @@ export class NewCharacter extends Component {
 
           <div className="character-graphic-container">
             <div className="character-graphic">
-              Obrazek
+              <input
+                style={{display: 'none'}}
+                type="file"
+                onChange={this.fileSelectedHandler}
+                ref={fileInput => this.fileInput = fileInput}
+              />
+              <button onClick={() => {this.fileInput.click()}}>pick up a file</button>
+
+
+              <img src={this.state.selectedFile} alt="" />
 
             </div>
           </div>
