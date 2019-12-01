@@ -486,7 +486,7 @@ export class EditCharacter extends Component {
               <textarea rows="1" name="bio" value={this.state.bio} onChange={this.handleBio}/>
             </div>
           </div>
-          <button className="save btn" onClick={() => this.props.onDone(this.state)}>save</button>
+          <button className="save btn" onClick={() => this.props.onDone(this.state, this.props.id)}>save</button>
         </div>
       </div>
     )

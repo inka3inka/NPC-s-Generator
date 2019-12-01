@@ -21,14 +21,10 @@ export class MainContainer extends Component {
     })
   };
 
-  showEditedCharacter = (editedCharacter) => {
+  showEditedCharacter = (editedCharacter, index) => {
     const characters = [...this.state.characters];
-    const toEdit = editedCharacter;
-    characters.splice(characters.indexOf(editedCharacter), 1);
-    characters.push(toEdit);
-    this.setState({
-      characters: characters
-    })
+    characters[index] = editedCharacter;
+    this.setState({ characters });
   };
 
   renderStateAfterRemove = (character) => {
