@@ -7,6 +7,7 @@ import {NewCharacter} from "./addNewCharacter";
 import {EditCharacter} from "./editCharacter";
 import {CharacterSheet} from "./characterSheet";
 import {About} from "./about";
+import {SignIn} from "./log";
 
 export class MainContainer extends Component {
   state = {
@@ -63,6 +64,7 @@ export class MainContainer extends Component {
             }}>
 
             </Route>
+            <Route path="/log" component={SignIn}/>
           </Switch>
         </div>
         </Router>
